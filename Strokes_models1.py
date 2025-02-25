@@ -31,11 +31,10 @@ def strock_predictor (input_data):
         int(smoking_status)
         ]).reshape(1, -1)
     prediction = loaded_model.predict(input_data)
-   
-   
-   if prediction [0]==0:
-       print("The patient is not at risk") 
-   else:
+    
+    if prediction [0]==0:
+        print("The patient is not at risk") 
+    else:
         print("The patient is most likely to suffer from strock")
         
         
