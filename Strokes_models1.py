@@ -1,43 +1,60 @@
 import numpy as np
-import pandas as pd
+import pickle # to load the model
 import streamlit as st
+import pandas as pd
 import requests
-import pickle
-import joblib
 
+
+# Loading the saved model copy the loaded_model line of code from jupyter notebook
+# copy the path to where the loaded model is savel
+# change the \ to /
+#loaded_model = pickle.load(open('E:\Ezekiel\Model_Deployment/trained_model1.sav', 'rb'))
+#loaded_model = pickle.load(open('https://github.com/ezekielmose/Machine-Learning/blob/main/trained_model1.sav', 'rb')) 
+
+#import pickle
+
+
+# URL of the .sav file
+#url = 'https://github.com/ezekielmose/Machine-Learning/raw/main/trained_model1.sav'
 
 url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new.pkl"
 
 # Download the file
-loaded_model = requests.get(url)
+loaded_model1 = requests.get(url)
 
 # Save the downloaded content to a temporary file
-with open('strock_model_new.pkl', 'wb') as f:
-    f.write(loaded_model.content)
+with open('trained_model1.sav', 'wb') as f:
+    f.write(loaded_model1.content)
 
 # Load the saved model
-with open('strock_model_new.pkl', 'rb') as f:
-    loaded_model = pickle.load(f)
+with open('trained_model1.sav', 'rb') as f:
+    loaded_model1 = pickle.load(f)
+
+# Now, you can use the loaded model for predictions
+
+
+# creating a function for prediction
+def st_prediction(input_data):
+
+    ## Copy from Jupyter, the code for the unstandadized data 
+    ## changing input data to numpy array because processing is easier than list 
+    input_data_as_numpy_array= np.array(input_data)
+    # reshaping the array for predicting 
     
-  
-def strock_predictor (input_data):
-    input_data = np.array([
-        int(gender),  # Ensure numeric type
-        int(age),
-        int(hypertension),
-        int(heart_disease),
-        int(avg_glucose_level),
-        int(bmi),
-        int(smoking_status)
-        ]).reshape(1, -1)
-    prediction = loaded_model.predict(input_data)
+    # Prepare the input data as an array or DataFrame (depending on your model)
+    # input_data = [age, sex, Chest_Pain, Blood_Pressure]
+    input_data_reshaped = np.array(input_data).reshape(1, -1)
     
-    if prediction [0]==0:
-        print("The patient is not at risk") 
+   #  input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+    prediction = loaded_model1.predict(input_data_reshaped)
+    
+    print(prediction)
+    if prediction [0] == 0:
+        return "The Person Does not have a st" # insted of print change to return
     else:
-        print("The patient is most likely to suffer from strock")
-        
-        
+        return "The Person has st" # insted of print change to return  
+    
+# Streamlit library to craete a user interface   
 def main():
     st.title ("Stroke Prediction Model")
     
@@ -52,7 +69,8 @@ def main():
     bmi =st.text_input ("Enter any value of (BMI) as per the measurements")
     smoking_status = st.text_input("Smoking_status 0 for never smoked, 1 for Unknown, 2 for formerly smoked, 3 for smokes")
     
-
+    
+    ## Numeric conversion
     gender = pd.to_numeric(gender, errors='coerce') 
     age = pd.to_numeric(age, errors='coerce')
     hypertension = pd.to_numeric(hypertension, errors='coerce')
@@ -63,14 +81,15 @@ def main():
     bmi = pd.to_numeric(bmi, errors='coerce')
     smoking_status = pd.to_numeric(smoking_status, errors='coerce')
 
+    # code for prediction
+    diagnosis = '' # string tha ontaons null values whose values are stored in the prediction
     
-    diagnosis1 = ""
+    # creating  a prediction button
+    if st.button("PREDICT"):
+        diagnosis = st_prediction ([gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi,smoking_status])    
+    st.success(diagnosis)
     
-    if st.button ("CLICK HERE TO PREDICT"):
-        diagnosis1 = strock_predictor ([gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi,smoking_status])   
-    st.success(diagnosis1) 
-    
-    
-# this is to allow our web app to run from anaconda command prompt where the cmd takes the main() only and runs the code   
+ 
+# this is to allow our web app to run from anaconda command prompt where the cmd takes the main() only and runs the code
 if __name__ == '__main__':
     main()
