@@ -14,12 +14,12 @@ url = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sa
 loaded_model = requests.get(url)
 
 # Save the downloaded content to a temporary file
-#with open('strock_model_new.sav', 'wb') as f:
-#    f.write(loaded_model.content)
+with open('strock_model_new.sav', 'wb') as f:
+    f.write(loaded_model.content)
 
 # Load the saved model
-#with open('strock_model_new.sav', 'rb') as f:
- #   loaded_model = pickle.load(f)
+with open('strock_model_new.sav', 'rb') as f:
+    loaded_model = pickle.load(f)
     
   
 def strock_predictor (input_data):
