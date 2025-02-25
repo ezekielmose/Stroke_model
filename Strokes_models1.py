@@ -39,7 +39,7 @@ def main():
     st.title ("Stroke Prediction Model")
     
     gender = st.text_input("What is the Gender (0 - Female and 1 - male)")
-    age = st.text_input("Enter the age")
+    #age = st.text_input("Enter the age")
     hypertension = st.text_input(" Hypertension 0 for -ve and 1 for +ve")
     heart_disease = st.text_input(" Heart_disease 0 for has and 1 for not ")
     ever_married = st.text_input(" Ever_married 0 for No and 1 for Yes")
@@ -51,7 +51,7 @@ def main():
     
     
     gender = pd.to_numeric(gender, errors='coerce')
-    age = pd.to_numeric(age, errors='coerce')
+    #age = pd.to_numeric(age, errors='coerce')
     hypertension = pd.to_numeric(hypertension, errors='coerce')
     heart_disease = pd.to_numeric(heart_disease, errors='coerce')
     ever_married = pd.to_numeric(ever_married, errors='coerce')
