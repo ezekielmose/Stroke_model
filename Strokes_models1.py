@@ -6,11 +6,7 @@ import pickle
 import joblib
 
 
-url = "https://github.com/ezekielmose/Heart_disease_model/blob/main/trained_model2.sav"
-# Download the file
-
-
-my_model = joblib.load(url)
+my_model = joblib.load("https://github.com/ezekielmose/Heart_disease_model/blob/main/trained_model2.sav")
     
 def strock_predictor (input_data):
    input_data_to_array =  np.array(input_data)
