@@ -29,10 +29,8 @@ def strock_predictor (input_data):
         int(avg_glucose_level),
         int(bmi),
         int(smoking_status)
-    ]).reshape(1, -1)
-
-   
-   prediction = loaded_model.predict(input_data)
+        ]).reshape(1, -1)
+    prediction = loaded_model.predict(input_data)
    
    
    if prediction [0]==0:
