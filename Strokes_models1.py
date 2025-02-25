@@ -26,7 +26,7 @@ def strock_predictor (input_data):
    input_data_reshaped = input_data_to_array.reshape(1, -1)
 
    
-   prediction = my_model.predict(input_data_reshaped)
+   prediction = loaded_model.predict(input_data_reshaped)
    
    
    if prediction [0]==0:
