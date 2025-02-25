@@ -21,11 +21,20 @@ with open('strock_model_new.pkl', 'rb') as f:
     
   
 def strock_predictor (input_data):
-   input_data_to_array =  np.array(input_data)
-   input_data_reshaped = input_data_to_array.reshape(1, -1)
+
+
+input_data = np.array([
+    int(gender),  # Ensure numeric type
+    int(age),
+    int(hypertension),
+    int(heart_disease),
+    int(avg_glucose_level),
+    int(bmi),
+    int(smoking_status)
+]).reshape(1, -1)
 
    
-   prediction = loaded_model.predict(input_data_reshaped)
+   prediction = loaded_model.predict(input_data)
    
    
    if prediction [0]==0:
