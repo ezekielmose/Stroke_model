@@ -4,6 +4,7 @@ import streamlit as st
 import requests
 import pickle
 import joblib
+import io
 
 
 MODEL_URL = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sav"
