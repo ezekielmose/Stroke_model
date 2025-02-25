@@ -49,7 +49,7 @@ def main():
     smoking_status = st.text_input("Smoking_status 0 for never smoked, 1 for Unknown, 2 for formerly smoked, 3 for smokes")
     
 
-    gender = pd.to_numeric(gender, errors='coerce') errors='coerce'
+    gender = pd.to_numeric(gender, errors='coerce') 
     age = pd.to_numeric(age, errors='coerce')
     hypertension = pd.to_numeric(hypertension, errors='coerce')
     heart_disease = pd.to_numeric(heart_disease, errors='coerce')
