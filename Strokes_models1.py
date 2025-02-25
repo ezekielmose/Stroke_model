@@ -6,9 +6,7 @@ import pickle
 import joblib
 
 
-url = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.pkl"
-
-
+url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new.pkl"
 
 # Download the file
 loaded_model = requests.get(url)
