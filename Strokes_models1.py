@@ -6,7 +6,20 @@ import pickle
 import joblib
 
 
-my_model = joblib.load("https://github.com/ezekielmose/Heart_disease_model/blob/main/trained_model2.sav")
+my_model = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sav"
+
+
+
+loaded_model = requests.get(my_model)
+
+# Save the downloaded content to a temporary file
+with open('strock_model_new.sav', 'wb') as f:
+    pickle.dump(loaded_model, f)
+
+
+# Load the saved model
+with open('strock_model_new.sav', 'rb') as f:
+    loaded_model = pickle.load(f)
     
 def strock_predictor (input_data):
    input_data_to_array =  np.array(input_data)
