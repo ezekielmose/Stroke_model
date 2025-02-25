@@ -6,27 +6,29 @@ import pickle
 import joblib
 
 
-my_model = ("https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sav")
+MODEL_URL = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sav"
 
+@st.cache_resource
+def load_model():
+    """Downloads and loads the model from GitHub."""
+    response = requests.get(MODEL_URL)
+    if response.status_code == 200:
+        model_file = io.BytesIO(response.content)
+        model = joblib.load(model_file)
+        return model
+    else:
+        st.error("Failed to download the model. Check the URL.")
+        return None
 
-
-loaded_model = requests.get(my_model)
-
-# Save the downloaded content to a temporary file
-with open('strock_model_new.sav', 'wb') as f:
-    pickle.dump(loaded_model, f)
-
-
-# Load the saved model
-with open('strock_model_new.sav', 'rb') as f:
-    loaded_model = pickle.load(f)
+# Load the model
+model = load_model()
     
 def strock_predictor (input_data):
    input_data_to_array =  np.array(input_data)
    input_data_reshaped = input_data_to_array.reshape(1, -1)
 
    
-   prediction = loaded_model.predict(input_data_reshaped)
+   prediction = model.predict(input_data_reshaped)
    
    
    if prediction [0]==0:
