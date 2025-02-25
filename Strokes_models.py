@@ -6,7 +6,7 @@ import pickle
 import joblib
 
 
-url = "https://github.com/ezekielmose/Stroke_Prediction_Model/blob/main/strock_model_new.sav"
+url = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sav"
 # Download the file
 
 
