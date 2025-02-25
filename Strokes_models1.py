@@ -9,7 +9,7 @@ import io
 
 MODEL_URL = "https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new.sav"
 
-@st.cache_resource
+# @st.cache_resource
 def load_model():
     """Downloads and loads the model from GitHub."""
     response = requests.get(MODEL_URL)
