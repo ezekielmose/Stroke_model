@@ -8,7 +8,7 @@ import requests
 # Loading the saved model copy the loaded_model line of code from jupyter notebook
 # copy the path to where the loaded model is savel
 # change the \ to /
-#loaded_model = pickle.load(open('E:\Ezekiel\Model_Deployment/trained_model1.sav', 'rb'))
+#loaded_model = pickle.load(open('E:\Ezekiel\Model_Deployment/trained_model1.sav', 'rb'))  
 #loaded_model = pickle.load(open('https://github.com/ezekielmose/Machine-Learning/blob/main/trained_model1.sav', 'rb')) 
 
 #import pickle
@@ -74,25 +74,15 @@ def main():
     
     
     ## Numeric conversion
-    gender = gender.astype(float)
-    age = age.astype(float)
-    hypertension = hypertension.astype(float)
-    heart_disease = heart_disease.astype(float)
-    ever_married = ever_married.astype(float)
-    work_type = work_type.astype(float)
-    Residence_type = Residence_type.astype(float)
-    avg_glucose_level = avg_glucose_level.astype(float)
-    bmi = bmi.astype(float)
-    smoking_status = smoking_status.astype(float)
-    #gender = pd.to_numeric(gender, errors='coerce') 
-    #age = pd.to_numeric(age, errors='coerce')
-   # hypertension = pd.to_numeric(hypertension, errors='coerce')
-   # heart_disease = pd.to_numeric(heart_disease, errors='coerce')
-    #ever_married = pd.to_numeric(ever_married, errors='coerce')
-    #Residence_type = pd.to_numeric(Residence_type, errors='coerce')
-    #avg_glucose_level = pd.to_numeric(avg_glucose_level, errors='coerce')
-    #bmi = pd.to_numeric(bmi, errors='coerce')
-    #smoking_status = pd.to_numeric(smoking_status, errors='coerce')
+    gender = pd.to_numeric(gender, errors='coerce') 
+    age = pd.to_numeric(age, errors='coerce')
+    hypertension = pd.to_numeric(hypertension, errors='coerce')
+    heart_disease = pd.to_numeric(heart_disease, errors='coerce')
+    ever_married = pd.to_numeric(ever_married, errors='coerce')
+    Residence_type = pd.to_numeric(Residence_type, errors='coerce')
+    avg_glucose_level = pd.to_numeric(avg_glucose_level, errors='coerce')
+    bmi = pd.to_numeric(bmi, errors='coerce')
+    smoking_status = pd.to_numeric(smoking_status, errors='coerce')
 
     # code for prediction
     diagnosis = '' # string tha ontaons null values whose values are stored in the prediction
