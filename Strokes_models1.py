@@ -74,15 +74,15 @@ def main():
     
     
     ## Numeric conversion
-    gender = pd.to_numeric(gender, errors='coerce') 
-    age = pd.to_numeric(age, errors='coerce')
-    hypertension = pd.to_numeric(hypertension, errors='coerce')
-    heart_disease = pd.to_numeric(heart_disease, errors='coerce')
-    ever_married = pd.to_numeric(ever_married, errors='coerce')
-    Residence_type = pd.to_numeric(Residence_type, errors='coerce')
-    avg_glucose_level = pd.to_numeric(avg_glucose_level, errors='coerce')
-    bmi = pd.to_numeric(bmi, errors='coerce')
-    smoking_status = pd.to_numeric(smoking_status, errors='coerce')
+    #gender = pd.to_numeric(gender, errors='coerce') 
+    #age = pd.to_numeric(age, errors='coerce')
+   # hypertension = pd.to_numeric(hypertension, errors='coerce')
+   # heart_disease = pd.to_numeric(heart_disease, errors='coerce')
+    #ever_married = pd.to_numeric(ever_married, errors='coerce')
+    #Residence_type = pd.to_numeric(Residence_type, errors='coerce')
+    #avg_glucose_level = pd.to_numeric(avg_glucose_level, errors='coerce')
+    #bmi = pd.to_numeric(bmi, errors='coerce')
+    #smoking_status = pd.to_numeric(smoking_status, errors='coerce')
 
     # code for prediction
     diagnosis = '' # string tha ontaons null values whose values are stored in the prediction
