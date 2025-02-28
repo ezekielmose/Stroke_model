@@ -17,24 +17,37 @@ import requests
 # URL of the .sav file
 #url = 'https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new1.pkl'
 
-url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new1.pkl"
+#url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new1.pkl"
 
 # Download the file
 #loaded_model1 = requests.get(url)
 
 # Function to download and load the model
-def load_model():
-    response = requests.get(url)
-    with open("strock_model_new.pkl", "wb") as f:
-        f.write(response.content)
-    with open("strock_model_new.pkl", "rb") as f:
-        model = pickle.load(f)
-    return model
+# def load_model():
+ #   response = requests.get(url)
+ #   with open("strock_model_new.pkl", "wb") as f:
+ #       f.write(response.content)
+  #  with open("strock_model_new.pkl", "rb") as f:
+  #      model = pickle.load(f)
+  #  return model ***
 
 
-model = load_model()
+#model = load_model()
 # Now, you can use the loaded model for predictions
 
+
+url = 'https://github.com/ezekielmose/Stroke_model/raw/main/strock_model_new1.pkl'
+
+# Download the file
+loaded_model = requests.get(url)
+
+# Save the downloaded content to a temporary file
+with open('trained_model1.sav', 'wb') as f:
+    f.write(loaded_model.content)
+
+# Load the saved model
+with open('trained_model1.sav', 'rb') as f:
+    loaded_model = pickle.load(f)
 
 # creating a function for prediction
 def st_prediction(input_data):
@@ -49,7 +62,7 @@ def st_prediction(input_data):
     input_data_reshaped = np.array(input_data).reshape(1, -1)
     
    #  input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
-    prediction = model.predict(input_data_reshaped)
+    prediction = loaded_model.predict(input_data_reshaped)
     
     print(prediction)
     if prediction [0] == 0:
