@@ -15,9 +15,9 @@ import requests
 
 
 # URL of the .sav file
-#url = 'https://github.com/ezekielmose/Machine-Learning/raw/main/trained_model1.sav'
+url = 'https://github.com/ezekielmose/Stroke_model/blob/main/strock_model_new1.pkl'
 
-url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new.pkl"
+#url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new.pkl"
 
 # Download the file
 #loaded_model1 = requests.get(url)
