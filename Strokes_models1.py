@@ -20,16 +20,19 @@ import requests
 url = "https://raw.githubusercontent.com/ezekielmose/Stroke_model/refs/heads/main/strock_model_new.pkl"
 
 # Download the file
-loaded_model1 = requests.get(url)
+#loaded_model1 = requests.get(url)
 
-# Save the downloaded content to a temporary file
-with open('trained_model1.sav', 'wb') as f:
-    f.write(loaded_model1.content)
+# Function to download and load the model
+def load_model():
+    response = requests.get(url)
+    with open("strock_model_new.pkl", "wb") as f:
+        f.write(response.content)
+    with open("strock_model_new.pkl", "rb") as f:
+        model = pickle.load(f)
+    return model
 
-# Load the saved model
-with open('trained_model1.sav', 'rb') as f:
-    loaded_model1 = pickle.load(f)
 
+model = load_model()
 # Now, you can use the loaded model for predictions
 
 
@@ -46,7 +49,7 @@ def st_prediction(input_data):
     input_data_reshaped = np.array(input_data).reshape(1, -1)
     
    #  input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
-    prediction = loaded_model1.predict(input_data_reshaped)
+    prediction = model.predict(input_data_reshaped)
     
     print(prediction)
     if prediction [0] == 0:
