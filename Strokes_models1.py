@@ -36,7 +36,7 @@ import requests
 # Now, you can use the loaded model for predictions
 
 
-url = 'https://github.com/ezekielmose/Stroke_model/raw/main/strock_model_new1.pkl'
+url = 'https://github.com/ezekielmose/Stroke_model/raw/main/strock_model_new2.pkl'
 
 # Download the file
 loaded_model = requests.get(url)
