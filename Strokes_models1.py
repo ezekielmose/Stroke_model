@@ -74,6 +74,16 @@ def main():
     
     
     ## Numeric conversion
+    gender = array.astype(float)
+    age = array.astype(float)
+    hypertension = array.astype(float)
+    heart_disease = array.astype(float)
+    ever_married = array.astype(float)
+    work_type = array.astype(float)
+    Residence_type = array.astype(float)
+    avg_glucose_level = array.astype(float)
+    bmi = array.astype(float)
+    smoking_status = array.astype(float)
     #gender = pd.to_numeric(gender, errors='coerce') 
     #age = pd.to_numeric(age, errors='coerce')
    # hypertension = pd.to_numeric(hypertension, errors='coerce')
