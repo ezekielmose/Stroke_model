@@ -79,6 +79,7 @@ def main():
     hypertension = pd.to_numeric(hypertension, errors='coerce')
     heart_disease = pd.to_numeric(heart_disease, errors='coerce')
     ever_married = pd.to_numeric(ever_married, errors='coerce')
+    work_type = pd.to_numeric(work_type, errors='coerce')
     Residence_type = pd.to_numeric(Residence_type, errors='coerce')
     avg_glucose_level = pd.to_numeric(avg_glucose_level, errors='coerce')
     bmi = pd.to_numeric(bmi, errors='coerce')
